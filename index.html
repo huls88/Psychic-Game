@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>The Psychic Game</title>
+</head>
+<body>
+	<div id="psychic">
+	<h1>The Psychic Game</h1>
+	<h3>Guess what letter I'm thinking of</h3>
+	<h4>The computer chose</h4>
+	<h4>Wins:</h4>
+	<h4>Losses:</h4>
+	<h4>Guesses left:</h4>
+	<h4>My Guess:</h4>
+	</div>
+
+	<script type="text/javascript">
+	
+
+    var computerChoices = ['a', 'b', 'c', 'd', 'e', 'f', 'g', 'h',
+        'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's',
+        't', 'u', 'v', 'w', 'x', 'y', 'z'];
+
+    // Creating variables to hold the number of wins, losses, and ties. They start at 0.
+    var wins = 0;
+    var losses = 0;
+    var guessLeft =9;
+    var myGuess =0;
+
+    // This function is run whenever the user presses a key.
+    document.onkeyup = function(event) {
+
+      // Determines which key was pressed.
+      var userGuess = event.key;
+
+      // Randomly chooses a choice from the options array. This is the Computer's guess.
+      var computerGuess = computerChoices[Math.floor(Math.random() * computerChoices.length)];
+      if (userGuess === 'a', 'b', 'c', 'd', 'e', 'f', 'g', 'h',
+        'i', 'j', 'k', 'l', 'm', 'n', 'o', 'p', 'q', 'r', 's',
+        't', 'u', 'v', 'w', 'x', 'y', 'z') {
+
+      	if (userGuess !== computerGuess) {
+      		losses++;
+      		guessLeft--;
+      	}
+      	else if (userGuess === computerGuess) {
+      		wins++;
+      	}
+      	
+      	else if (parseInt(userGuess) === computerGuess) {
+            ;
+          }
+
+  
+      	
+
+
+      	 var html =
+         "<h4>The computer chose: " + computerGuess + "</h4>" +
+         "<h4>wins: " + wins + "</h4>" +
+         "<h4>my guess: " + myGuess + "</h4>" + 
+         "<h4>losses: " + losses + "</h4>" +
+         "<h4>guesses left: " + guessLeft + "</h4";
+
+
+        // Set the inner HTML contents of the #game div to our html string
+        document.querySelector("#psychic").innerHTML = html;
+
+
+     }
+	}
+
+	 //works
+
+
+
+
+ 
+
+	</script>
+
+</body>
+</html>
